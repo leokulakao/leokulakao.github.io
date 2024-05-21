@@ -109,20 +109,21 @@ export class AppComponent implements OnInit {
 
     for (let i = 0; i < event.touches.length; i++) {
       const touchHtmlElement = event.touches[i].target as HTMLElement;
+      const parentTouchHtmlElement = touchHtmlElement.parentElement;
 
-      if (touchHtmlElement.classList == buttonRightHtmlElement.classList) {
+      if (touchHtmlElement.classList == buttonRightHtmlElement.classList || parentTouchHtmlElement?.classList == buttonRightHtmlElement.classList) {
         console.log('right ok!');
         this.soundRight.stop();
         this.soundRight.play();
       }
 
-      if (touchHtmlElement.classList == buttonCenterHtmlElement.classList) {
+      if (touchHtmlElement.classList == buttonCenterHtmlElement.classList || parentTouchHtmlElement?.classList == buttonCenterHtmlElement.classList) {
         console.log('center ok!');
         this.soundCenter.stop();
         this.soundCenter.play();
       }
 
-      if (touchHtmlElement.classList == buttonLeftHtmlElement.classList) {
+      if (touchHtmlElement.classList == buttonLeftHtmlElement.classList || parentTouchHtmlElement?.classList == buttonLeftHtmlElement.classList) {
         console.log('left ok!');
         this.soundLeft.stop();
         this.soundLeft.play();
